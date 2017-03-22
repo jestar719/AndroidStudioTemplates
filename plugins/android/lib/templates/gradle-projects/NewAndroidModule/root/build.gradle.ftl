@@ -85,6 +85,8 @@ android {
 </#if>
 }
 
+def lib=rootProjects.ext.lib
+
 dependencies {
 <#if isLibraryProject || !(isInstantApp!false)>
     compile fileTree(dir: 'libs', include: ['*.jar'])
