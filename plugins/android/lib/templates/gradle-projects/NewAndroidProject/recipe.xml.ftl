@@ -7,7 +7,8 @@
     <copy from="root/project_ignore"
             to="${escapeXmlAttribute(topOut)}/.gitignore" />
 </#if>
-
+<instantiate from="root/.travis.yml.ftl"
+               to="${escapeXmlAttribute(topOut)}/.travis.yml.ftl"
     <instantiate from="root/settings.gradle.ftl"
                    to="${escapeXmlAttribute(topOut)}/settings.gradle"
     <instantiate from="root/config.gradle.ftl"

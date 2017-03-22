@@ -17,6 +17,10 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        //Fir上传插件
+        classpath 'im.fir:gradle-fir-publisher:1.0.7'
+        //JitPack
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
 
@@ -26,6 +30,8 @@ allprojects {
 <#if mavenUrl != "mavenCentral">
         maven {
             url '${mavenUrl}'
+            url "http://maven.bughd.com/public"
+            url "https://jitpack.io"
         }
 </#if>
 <#if isInstantApp!false>
