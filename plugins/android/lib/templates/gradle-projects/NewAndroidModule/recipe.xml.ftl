@@ -3,11 +3,11 @@
 
 <#if !(isInstantApp!false) || (isBaseAtom!false)>
     <#if backwardsCompatibility!true>
-        <dependency mavenUrl="com.android.support:appcompat-v7:${buildApi}.+" />
+        <dependency mavenUrl=lib.compat />
     </#if>
 
     <#if unitTestsSupported>
-        <dependency mavenUrl="junit:junit:4.12" gradleConfiguration="testCompile" />
+        <dependency mavenUrl=lib.junit gradleConfiguration="testCompile" />
     </#if>
 </#if>
 
@@ -74,8 +74,6 @@
                    to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
 </#if>
 
-    <instantiate from="root/test/app_package/ExampleInstrumentedTest.java.ftl"
-                   to="${escapeXmlAttribute(testOut)}/ExampleInstrumentedTest.java" />
 
 <#if unitTestsSupported>
     <instantiate from="root/test/app_package/ExampleUnitTest.java.ftl"
