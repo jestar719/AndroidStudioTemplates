@@ -39,17 +39,17 @@ repositories {
 </#if>
 
 android {
-    compileSdkVersion <#if buildApiString?matches("^\\d+$")>${buildApiString}<#else>'${buildApiString}'</#if>
-    buildToolsVersion "${buildToolsVersion}"
+    compileSdkVersion cSdk
+    buildToolsVersion bSdk
 
     defaultConfig {
     <#if !(isLibraryProject!false) && !(isInstantApp!false)>
     applicationId "${packageName}"
     </#if>
-        minSdkVersion <#if minApi?matches("^\\d+$")>${minApi}<#else>'${minApi}'</#if>
-        targetSdkVersion <#if targetApiString?matches("^\\d+$")>${targetApiString}<#else>'${targetApiString}'</#if>
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion mSdk
+        targetSdkVersion tSdk
+        versionCode vCode
+        versionName vName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -88,9 +88,6 @@ android {
 dependencies {
 <#if isLibraryProject || !(isInstantApp!false)>
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:${espressoVersion!"2.0"}', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     <#if WearprojectName?has_content && NumberOfEnabledFormFactors?has_content && NumberOfEnabledFormFactors gt 1 && Wearincluded>
     wearApp project(':${WearprojectName}')
     compile 'com.google.android.gms:play-services-wearable:+'

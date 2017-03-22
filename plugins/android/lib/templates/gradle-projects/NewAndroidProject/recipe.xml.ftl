@@ -9,8 +9,9 @@
 </#if>
 
     <instantiate from="root/settings.gradle.ftl"
-                   to="${escapeXmlAttribute(topOut)}/settings.gradle" />
-
+                   to="${escapeXmlAttribute(topOut)}/settings.gradle"
+    <instantiate from="root/config.gradle.ftl"
+                   to="${escapeXmlAttribute(topOut)}/config.gradle" />
     <instantiate from="root/gradle.properties.ftl"
                    to="${escapeXmlAttribute(topOut)}/gradle.properties" />
 
